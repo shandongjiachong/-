@@ -3,7 +3,7 @@
 using namespace std;
 const int n = 16, times = 1000;
 double a[n];
-double advancedway(const double *a) { 
+void advancedway(const double *a) { 
     int n1 = n;
     double temp[n];
     for (int i = 0; i < n; ++i) temp[i] = a[i];
@@ -13,7 +13,7 @@ double advancedway(const double *a) {
         }
         n1 = (n1 + 1) / 2;  
     }
-    return temp[0];
+    double ans=temp[0];
 }
 int main()
 {
@@ -21,7 +21,7 @@ int main()
     long long head, tail, freq;
     QueryPerformanceFrequency((LARGE_INTEGER*)&freq);
     QueryPerformanceCounter((LARGE_INTEGER*)&head);
-    for (int i = 1; i <= times; i++)cout<<advancedway(a);
+    for (int i = 1; i <= times; i++)advancedway(a);
     QueryPerformanceCounter((LARGE_INTEGER*)&tail);
     cout << "Col: " << (tail - head) * 1000.0 / (freq * times) << "ms" << endl;
     return 0;
